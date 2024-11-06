@@ -1,6 +1,3 @@
-# feature1.py
-
-
 import pandas as pd
 
 def initialize_df():
@@ -23,7 +20,12 @@ def add_entry(df, amount, category, entry_type="expense"):
     Returns:
     -DataFrame: The updated DataFrame with the new entry added.
     """
+    
+    if not isinstance(amount, (int, float))
+        raise ValueError()
+
     new_entry = pd.DataFrame([[amount, category, entry_type]], columns=["amount", "category", "type"])
     df = pd.concat([df, new_entry], ignore_index=True)
     print(f"Added {entry_type}: ${amount} in category '{category}'.")
     return df
+
