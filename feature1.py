@@ -15,17 +15,18 @@ def add_entry(df, amount, category, entry_type="expense"):
     - df (DataFrame): The DataFrame to add the entry to
     - amount (float): The amount of the entry
     - category (str): Category of the entry 
-    - entry_type (str): Type of entry ("income" or "expense") --> Default is set to "expense"
+    - entry_type (str): Type of entry ("income" or "expense") --> Default 
+is set to "expense"
     
     Returns:
     -DataFrame: The updated DataFrame with the new entry added.
     """
     
-    if not isinstance(amount, (int, float))
-        raise ValueError()
+    if not isinstance(amount, (int, float)):
+        raise ValueError("The amount must be a number.")
 
-    new_entry = pd.DataFrame([[amount, category, entry_type]], columns=["amount", "category", "type"])
+    new_entry = pd.DataFrame([[amount, category, entry_type]], 
+columns=["amount", "category", "type"])
     df = pd.concat([df, new_entry], ignore_index=True)
     print(f"Added {entry_type}: ${amount} in category '{category}'.")
     return df
-
